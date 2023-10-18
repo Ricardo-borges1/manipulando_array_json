@@ -37,33 +37,7 @@ var estados_cidades = require ('./estados_cidades.js')
 
     //})
 
-    const getDadosEstado = function(siglaEstado){
-        //Converte a chegada da string em amiusculo para realizar a busca
-        let sigla = siglaEstado;
-        //Cria um objeto do tipo JSON
-        let estado = {};
-    
-         if({
-            listaDeEstados.estados.forEach (item => {
-                
-                if(item.sigla.indexOf(sigla.toUpperCase()) == 0)
-                {
-                    
-                    estado.uf = item.sigla,
-                    estado.descricao = item.nome
-                    estado.capital = item.capital
-                    estado.regiao = item.regiao  
-                }
-            });
-        
-    }  )
-        
-            return estado;
-    
-    };
-
-    console.log(getDadosEstado());
-    //console.log(getListadeEstados());
+    console.log(getListadeEstados());
 
 
 
