@@ -27,7 +27,7 @@ var estados_cidades = require ('./estados_cidades.js')
 
         return JSONSigla;
         
-    }
+    };
 
     //FOREACH -> estrutura de repetição feita para trabalhar com array, ele gerencia o índice, ele pega o arrray "Lista de produtos" 
     //e ele cria na memoria uma replica dsse array, pegando o conteudo do array e joga numa variavel de callback
@@ -37,7 +37,41 @@ var estados_cidades = require ('./estados_cidades.js')
 
     //})
 
-    console.log(getListadeEstados());
+    const getDadosEstado = function() {
+        let JSONDados = {};
+        let filtro = 'RJ';
+
+        estados_cidades.estadosCidades.estados.forEach(function(estado) {
+            if (filtro === estado.sigla) {
+                JSONDados.uf = estado.sigla;
+                JSONDados.descricao = estado.nome;
+                JSONDados.capital = estado.capital;
+                JSONDados.regiao = estado.regiao;
+                
+            }
+        });
+    
+        return JSONDados;
+    };
+    
+
+    const getCapitalEstado = function() {
+        let JSONCapital = {};
+        let filtro = 'SP';
+    
+        estados_cidades.estadosCidades.estados.forEach(function(estado) {
+            if (filtro.toUpperCase() === estado.sigla.toUpperCase()) {
+                JSONCapital.uf = estado.sigla.toUpperCase();
+                JSONCapital.descricao = estado.nome;
+                JSONCapital.capital = estado.capital; 
+            }
+        });
+        return JSONCapital;
+    };
+    
+    //console.log(getCapitalEstado());
+    //console.log(getDadosEstado());
+    //console.log(getListadeEstados());
 
 
 
