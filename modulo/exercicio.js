@@ -68,7 +68,30 @@ var estados_cidades = require ('./estados_cidades.js')
         });
         return JSONCapital;
     };
+
+    const getEstadosRegiao = function() {
+        let JSONRegiao = {};
+        let arrayEstados = [];
+        let filtro = 'SUDESTE';
     
+        for (let i = 0; i < estados_cidades.estadosCidades.estados.length; i++) {
+            let estado = estados_cidades.estadosCidades.estados[i];
+            if (filtro.toUpperCase() === estado.regiao.toUpperCase()) {
+                let JSONEstados = {};
+                JSONEstados.uf = estado.sigla;
+                JSONEstados.nome = estado.nome;
+                arrayEstados.push(JSONEstados);
+            }
+        }
+    
+        if (arrayEstados.length > 0) {
+            JSONRegiao.regiao = filtro.toUpperCase();
+            JSONRegiao.estados = arrayEstados;
+        } 
+        return JSONRegiao;
+    };
+    
+    console.log(getEstadosRegiao());
     //console.log(getCapitalEstado());
     //console.log(getDadosEstado());
     //console.log(getListadeEstados());
