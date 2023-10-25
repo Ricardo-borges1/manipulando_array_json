@@ -89,7 +89,66 @@ var estados_cidades = require ('./estados_cidades.js')
         return JSONRegiao;
     };
 
-    console.log(getEstadosRegiao());
+
+const getCapitalPais = function() {
+    let JSONCapitais = {};
+    let arrayCapitais = [];
+
+    if (estados_cidades && estados_cidades.estados && Array.isArray(estados_cidades.estados) && estados_cidades.estados.length > 0) {
+        estados_cidades.estadosCidades.estados.forEach(function(estado) {
+            if (estado.capital_pais) {
+                let JSONEstados = {
+                    capital_atual: estado.capital_pais.capital,
+                    uf: estado.sigla,
+                    descricao: estado.nome,
+                    capital: estado.capital,
+                    regiao: estado.regiao,
+                    capital_pais_ano_inicio: estado.capital_pais.ano_inicio,
+                    capital_pais_ano_termino: estado.capital_pais.ano_fim
+                };
+                arrayCapitais.push(JSONEstados);
+            }
+        });
+    } 
+
+    JSONCapitais.capitais = arrayCapitais;
+    return JSONCapitais;
+};
+
+const getCidades = function() {
+    let JSONCidades = {};
+    let arrayCidades = [];
+    let filtro = 'AC';
+
+    // Verificar se estados_cidades.estados é um array e contém dados
+    if (estados_cidades && estados_cidades.estados && Array.isArray(estados_cidades.estados)) {
+        estados_cidades.estados.forEach(function(estado) {
+            if (filtro === estado.sigla) {
+                JSONCidades.uf = estado.sigla;
+                JSONCidades.descricao = estado.nome;
+                JSONCidades.quantidade_cidades = estado.cidades.length;
+
+                // Adicionar nomes das cidades ao arrayCidades
+                estado.cidades.forEach(function(cidade) {
+                    arrayCidades.push(cidade.nome);
+                });
+
+                JSONCidades.cidades = arrayCidades;
+            }
+        });
+    } else {
+        console.log("Os dados de estados não estão definidos ou são inválidos.");
+        return null;
+    }
+
+    return JSONCidades;
+};
+
+
+
+    //console.log(getCidades());
+    //console.log(getCapitalPais());
+    //console.log(getEstadosRegiao());
     //console.log(getCapitalEstado());
     //console.log(getDadosEstado());
     //console.log(getListadeEstados());
