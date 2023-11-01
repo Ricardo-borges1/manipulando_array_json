@@ -139,16 +139,14 @@ var estadosCidades = require ('./estados_cidades.js')
     };
     
 
-    //console.log(getCidades());
-    //console.log(getCapitalPais());
-    //console.log(getEstadosRegiao());
-    //console.log(getCapitalEstado());
-    //console.log(getDadosEstado());
-    //console.log(getListadeEstados());
+    console.log(getCidades());
+    console.log(getCapitalPais());
+    console.log(getEstadosRegiao());
+    console.log(getCapitalEstado());
+    console.log(getDadosEstado());
+    console.log(getListadeEstados());
 
-
-
-
+   module.exports = {getListadeEstados}
 
 
 
