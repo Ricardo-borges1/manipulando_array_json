@@ -1,3 +1,25 @@
+/********************************************************************************
+ * Objetivo: Realizar os exercícios orientados pelo professor utilizado ARRAY E JSON
+ * Data: 25/10/2023
+ * Autor: Ricardo Borges do Amaral
+ * Versão 1.0
+ ********************************************************************************/
+
+
+   //FOR
+   //for(let cont=0 ; cont <listaDeProdutos.length; cont++){
+    //console.log (`nome do Produto: ${listaDeProdutos[cont]}`);
+
+   //}
+
+   //FOREACH -> estrutura de repetição feita para trabalhar com array, ele gerencia o índice, ele pega o arrray "Lista de produtos" 
+    //e ele cria na memoria uma replica dsse array, pegando o conteudo do array e joga numa variavel de callback
+
+   // listaDeProdutos.forEach(function(produto){
+    //console.log (`Nome do Produto: ${produto}`)
+
+   // })
+
 var estadosCidades = require ('./estados_cidades.js')
 
     const getListadeEstados= function(){
@@ -116,7 +138,7 @@ var estadosCidades = require ('./estados_cidades.js')
         return JSONCidades;
     };
     
-    
+
     //console.log(getCidades());
     //console.log(getCapitalPais());
     //console.log(getEstadosRegiao());
