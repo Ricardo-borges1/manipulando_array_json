@@ -54,6 +54,7 @@ app.use((request,response,next) =>{
 
 
 //EndPoints: Lista a sigla de todos os estados
+//http://localhost:8080/estados/sigla
 app.get('/estados/sigla', cors (), async function (request,response,next){
     
     let controleEstadosCidades = require('./modulo/exercicio.js');
@@ -68,7 +69,9 @@ app.get('/estados/sigla', cors (), async function (request,response,next){
     }
 })
 
+
 //EndPoints: Retorna dados do estado filtrando pela sigla
+//http://localhost:8080/estado/sigla/df
 app.get('/estado/sigla/:uf', cors(), async function(request,response,next){
 
     // recebe uma váriavel encaminhada como parametro na requisição
@@ -88,6 +91,7 @@ app.get('/estado/sigla/:uf', cors(), async function(request,response,next){
 })
 
 //EndPoints: Retorna dados da capital filtrando pela sigla do estado
+//http://localhost:8080/capital/estado?uf=SP
 app.get('/capital/estado', cors(), async function(request,response,next){
 
     // recebe uma váriavel encaminhada como QueryString na requisição
@@ -108,6 +112,7 @@ app.get('/capital/estado', cors(), async function(request,response,next){
 })
 
 
+//http://localhost:8080/estados/regiao/?regiao=sul
 app.get('/estados/regiao', cors(), async function(request,response,next) {
     let regiao = request.query.regiao;
 
@@ -123,6 +128,8 @@ app.get('/estados/regiao', cors(), async function(request,response,next) {
     }
 })
 
+
+//http://localhost:8080/capital/pais?capital
 app.get('/capital/pais', cors(), async function(request,response,next){
     let capital = request.query.capital;
 
@@ -138,6 +145,8 @@ app.get('/capital/pais', cors(), async function(request,response,next){
     }
 } )
 
+
+//http://localhost:8080/estado/cidades?cidades=AC
 app.get('/estado/cidades', cors(), async function(request,response,next){
     let cidades = request.query.cidades;
 
