@@ -138,7 +138,21 @@ app.get('/capital/pais', cors(), async function(request,response,next){
     }
 } )
 
+app.get('/estado/cidades', cors(), async function(request,response,next){
+    let cidades = request.query.cidades;
 
+    let controleDadosCidades = require ('./modulo/exercicio.js');
+    let dadosCidades = controleDadosCidades.getCidades(cidades);
+
+    if(dadosCidades){
+        response.json(dadosCidades);
+        response.status(200);
+    }else {
+        reponse.status(404);
+        response.json({erro: 'item não encontrado' })
+    }
+
+})
 
 app.listen('8080', function(){
     console.log('API FUNCIONANDO')

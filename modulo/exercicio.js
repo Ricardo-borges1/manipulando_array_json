@@ -20,6 +20,7 @@
 
    // })
 
+const { status } = require('express/lib/response.js');
 var estadosCidades = require ('./estados_cidades.js')
 
     const getListadeEstados= function(){
@@ -163,7 +164,11 @@ var estadosCidades = require ('./estados_cidades.js')
             }
         });
     
+        if (encontrado)
         return JSONCidades;
+    else 
+        return false;
+        
     };
     
 
